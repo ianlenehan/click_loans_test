@@ -34,6 +34,14 @@ export default function createRoutes() {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/albums',
+      name: 'albums',
+      getComponent(nextState, cb) {
+        System.import('containers/AlbumsPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

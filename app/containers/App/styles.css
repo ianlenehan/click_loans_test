@@ -4,6 +4,19 @@
  * App container styles
  */
 
+ body {
+   background-color: rgb(195, 210, 255);
+ }
+
 .container {
   display: block;
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.siteTitle, .subHeader {
+  text-align: center;
 }

@@ -14,6 +14,8 @@
 import React from 'react';
 
 import styles from './styles.css';
+import H1 from 'components/H1';
+import H3 from 'components/H3';
 
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -24,6 +26,8 @@ export default class App extends React.Component { // eslint-disable-line react/
   render() {
     return (
       <div className={styles.container}>
+        <H1 className={styles.siteTitle}>Click Loans Code Test</H1>
+        <H3 className={styles.subHeader}>by Ian Lenehan</H3>
         {this.props.children}
       </div>
     );
