@@ -40,6 +40,9 @@ const history = syncHistoryWithStore(browserHistory, store, {
 
 // Set up the router, wrapping all Routes in the App component
 import App from 'containers/App';
+import Albums from 'containers/AlbumsPage/index.js';
+import Home from 'containers/HomePage/index.js';
+import {Route, IndexRoute, hashHistory} from 'react-router';
 import createRoutes from './routes';
 const rootRoute = {
   component: App,
@@ -48,15 +51,12 @@ const rootRoute = {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router
-      history={history}
-      routes={rootRoute}
-      render={
-        // Scroll to top when going to a new page, imitating default browser
-        // behaviour
-        applyRouterMiddleware(useScroll())
-      }
-    />
+      <Router history={hashHistory}>
+        <Route path="/" component={App}>
+          <Route path="albums" component={Albums}/>
+          <IndexRoute component={Home}/>
+        </Route>
+      </Router>
   </Provider>,
   document.getElementById('app')
 );
