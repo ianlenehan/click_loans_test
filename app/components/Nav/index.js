@@ -5,18 +5,15 @@ import styles from './styles.css';
 
 function Nav() {
     return (
-      <div className="top-bar">
-        <div className="top-bar-left">
-          <ul className="menu">
-            <li className="menu-text">Click Loans Test</li>
+      <div>
+          <ul>
             <li>
-              <IndexLink to="/" activeClassName="active-link">Home</IndexLink>
+              <IndexLink to="/" activeClassName="active-link">Click Loans Test</IndexLink>
             </li>
             <li>
               <IndexLink to="/albums" activeClassName="active-link">Albums</IndexLink>
             </li>
           </ul>
-        </div>
       </div>
     )
 };

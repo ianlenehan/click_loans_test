@@ -1,0 +1,20 @@
+ul {
+  margin: 0;
+  background-color: black;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+  padding: 20px;
+}
+
+li a {
+  color: gainsboro;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: white;
+}
