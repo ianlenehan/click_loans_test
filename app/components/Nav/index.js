@@ -1,21 +1,21 @@
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import { IndexLink } from 'react-router';
 
 import styles from './styles.css';
 
 function Nav() {
-    return (
-      <div>
-          <ul>
-            <li>
-              <IndexLink to="/" activeClassName="active-link">Click Loans Test</IndexLink>
-            </li>
-            <li>
-              <IndexLink to="/albums" activeClassName="active-link">Albums</IndexLink>
-            </li>
-          </ul>
-      </div>
-    )
-};
+  return (
+    <div>
+      <ul className={styles.navList}>
+        <li className={styles.navItem}>
+          <IndexLink to="/" className={styles.navLink} activeClassName="active-link">Click Loans Test</IndexLink>
+        </li>
+        <li className={styles.navItem}>
+          <IndexLink to="/albums" className={styles.navLink} activeClassName="active-link">Albums</IndexLink>
+        </li>
+      </ul>
+    </div>
+  );
+}
 
 export default Nav;

@@ -1,17 +1,20 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-var AlbumItems = React.createClass({
-  render: function () {
-
-    let data = this.props.data;
-
+class AlbumItems extends React.Component {
+  propTypes: {
+    albumData: React.PropTypes.array,
+  }
+  render() {
+    const { albumData } = this.props;
     return (
-        <tr>
-          <td>{data.id}</td>
-          <td>{data.title}</td>
-          <td>{data.userId}</td>
-        </tr>
+      <tr>
+        <td>{albumData.id}</td>
+        <td>{albumData.title}</td>
+        <td>{albumData.userId}</td>
+      </tr>
     );
   }
-});
+}
+
+
 export default AlbumItems;

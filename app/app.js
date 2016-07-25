@@ -15,10 +15,11 @@ import 'file?name=[name].[ext]!./.htaccess';      // eslint-disable-line import/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import useScroll from 'react-router-scroll';
+import { Route, IndexRoute, hashHistory, Router, browserHistory } from 'react-router';
 import configureStore from './store';
+import App from 'containers/App';
+import Albums from 'containers/AlbumsPage/index.js';
+import Home from 'containers/HomePage/index.js';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
@@ -30,33 +31,14 @@ import 'sanitize.css/sanitize.css';
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
 
-// Sync history and store, as the react-router-redux reducer
-// is under the non-default key ("routing"), selectLocationState
-// must be provided for resolving how to retrieve the "route" in the state
-import { selectLocationState } from 'containers/App/selectors';
-const history = syncHistoryWithStore(browserHistory, store, {
-  selectLocationState: selectLocationState(),
-});
-
-// Set up the router, wrapping all Routes in the App component
-import App from 'containers/App';
-import Albums from 'containers/AlbumsPage/index.js';
-import Home from 'containers/HomePage/index.js';
-import {Route, IndexRoute, hashHistory} from 'react-router';
-import createRoutes from './routes';
-const rootRoute = {
-  component: App,
-  childRoutes: createRoutes(store),
-};
-
 ReactDOM.render(
   <Provider store={store}>
-      <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <Route path="albums" component={Albums}/>
-          <IndexRoute component={Home}/>
-        </Route>
-      </Router>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <Route path="albums" component={Albums} />
+        <IndexRoute component={Home} />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('app')
 );

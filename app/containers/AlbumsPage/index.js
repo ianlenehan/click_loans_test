@@ -1,30 +1,24 @@
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
-import Helmet from 'react-helmet';
 import axios from 'axios';
 
-import Button from 'components/Button';
-import H1 from 'components/H1';
 import AlbumItems from 'components/AlbumItems';
 
-import styles from './styles.css';
+class AlbumsPage extends React.Component {
 
-var AlbumsPage = React.createClass({
+  constructor(props) {
+    super(props);
+    this.state = {
+      albums: [],
+    };
+  }
 
-  getInitialState: function () {
-    return {
-      albums: []
-    }
-  },
-
-  componentDidMount: function () {
+  componentDidMount() {
     const ALBUMS_URL = 'http://jsonplaceholder.typicode.com/albums';
     return axios.get(ALBUMS_URL).then(function (res) {
-      var albums = res.data;
-      var albumsArr = [];
-      var albumNames = [];
+      const albums = res.data;
+      let albumsArr = [];
+      const albumNames = [];
       albums.length = 100;
       albumsArr = Array.prototype.slice.apply(albums);
 
@@ -32,15 +26,13 @@ var AlbumsPage = React.createClass({
         albumNames.push(albums[i].title + ' (user: ' + albums[i].userId + ')');
       }
       this.setState({
-        albums: albumsArr
+        albums: albumsArr,
       });
     }.bind(this));
-  },
+  }
 
-  render: function () {
-
-    let albums = this.state.albums;
-
+  render() {
+    const albums = this.state.albums;
     let listItems = albums.map((albumsObj) => {
       return <AlbumItems key={albumsObj.id} data={albumsObj} />;
     });
@@ -58,10 +50,9 @@ var AlbumsPage = React.createClass({
             {listItems}
           </tbody>
         </table>
-
       </div>
     );
   }
-});
+}
 
 export default AlbumsPage;

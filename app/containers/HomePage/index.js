@@ -11,23 +11,12 @@
 
 import React from 'react';
 
-import Button from 'components/Button';
-
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
-  openRoute = (route) => {
-  this.props.changeRoute(route);
-  };
-
-  viewAlbumsPage = () => {
-  this.openRoute('/albums');
-  };
 
   render() {
     return (
       <div>
         <h1>This is the Homepage!</h1>
-        <Button handleRoute={this.viewAlbumsPage}>View Albums</Button>
       </div>
     );
   }

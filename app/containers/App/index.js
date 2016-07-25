@@ -16,7 +16,7 @@ import React from 'react';
 import styles from './styles.css';
 import H1 from 'components/H1';
 import H3 from 'components/H3';
-import Nav from 'components/Nav'
+import Nav from 'components/Nav';
 
 
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function

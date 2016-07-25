@@ -1,20 +1,20 @@
-ul {
+.navList {
   margin: 0;
   background-color: black;
   text-align: center;
 }
 
-li {
+.navItem {
   display: inline-block;
   list-style: none;
   padding: 20px;
 }
 
-li a {
+.navLink {
   color: gainsboro;
   text-decoration: none;
 }
 
-li a:hover {
+.navLink:hover {
   color: white;
 }
